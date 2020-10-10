@@ -5,7 +5,9 @@ import CognitoStack from './CognitoStack';
 export default function main(app) {
   new DynamoDbStack(app, 'dynamodb');
   
-  new S3Stack(app, 's3');
+  const s3 = new S3Stack(app, 's3');
 
-  new CognitoStack(app, 'cognito');
+  new CognitoStack(app, 'cognito', {
+    bucketArn: s3.bucket.bucketArn,
+  });
 }
