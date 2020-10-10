@@ -1,4 +1,4 @@
-import { CfnOutput } from '@aws-cdk/core';
+import * as cdk from '@aws-cdk/core';
 import * as dynamoDb from '@aws-cdk/aws-dynamodb';
 import * as sst from '@serverless-stack/resources';
 
@@ -14,12 +14,12 @@ export default class DynamoDbStack extends sst.Stack {
       partitionKey: { name: 'userId', type: dynamoDb.AttributeType.STRING },
     });
 
-    new CfnOutput(this, 'TableName', {
+    new cdk.CfnOutput(this, 'TableName', {
       value: table.tableName,
       exportName: app.logicalPrefixedName('TableName'),
     });
 
-    new CfnOutput(this, 'TableArn', {
+    new cdk.CfnOutput(this, 'TableArn', {
       value: table.tableArn,
       exportName: app.logicalPrefixedName('TableArn'),
     });
