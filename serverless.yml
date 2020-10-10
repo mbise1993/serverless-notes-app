@@ -41,7 +41,7 @@ functions:
           authorizer: aws_iam
   get:
     handler: get.main
-    event:
+    events:
       - http:
           path: notes/{id}
           method: get
@@ -49,7 +49,7 @@ functions:
           authorizer: aws_iam
   list:
     handler: list.main
-    event:
+    events:
       - http:
           path: notes
           method: get
@@ -57,7 +57,7 @@ functions:
           authorizer: aws_iam
   update:
     handler: update.main
-    event:
+    events:
       - http:
           path: notes/{id}
           method: put
@@ -65,7 +65,7 @@ functions:
           authorizer: aws_iam
   delete:
     handler: delete.main
-    event:
+    events:
       - http:
           path: notes/{id}
           method: delete
